@@ -1,0 +1,14 @@
+stages:
+  train:
+    cmd: jupyter nbconvert --to notebook --execute mtbi_prediction_task.ipynb
+    deps:
+    - data_archive.zip
+    - mtbi_prediction_task.ipynb
+    params:
+    - params.json:
+      - lr
+    outs:
+    - model.joblib
+    metrics:
+    - metrics.json:
+        cache: false

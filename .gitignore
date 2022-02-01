@@ -1,2 +1,5 @@
 data_archive.zip
 .neptune/
+/model.joblib
+mlruns/
+mtbi_prediction_task.nbconvert.ipynb

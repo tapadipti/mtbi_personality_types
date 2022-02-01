@@ -1,0 +1,7 @@
+name: My Project
+
+entry_points:
+ main:
+  parameters:
+   penalty: {type: string, default:none}
+  command: "jupyter nbconvert --to notebook --execute mtbi_prediction_task.ipynb -r {penalty}" 
