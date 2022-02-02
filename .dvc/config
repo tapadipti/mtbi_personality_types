@@ -1,4 +1,4 @@
 [core]
     remote = gcp_remote
 ['remote "gcp_remote"']
-    url = gs://my-dvc-data
+    url = gs://my-dvc-data/mtbi_personality_types_data
