@@ -1,27 +1,27 @@
 name: run-my-experiment
 on: [pull_request]
 jobs:
- dvc_exp_run:
-  runs-on: ubuntu-latest
-  steps:
-   - uses: actions/checkout@v2
-   - name: Run experiment
-     env:
-      repo_token: ${{ secrets.GITHUB_TOKEN }}
-     run: |
-      echo "At point 1"
-      pip install -r requirements.txt
-      echo "At point 2"
-      dvc pull
-      echo "At point 3"
-      find data_archive.zip
-      echo "At point 4"
-      dvc repro
-      echo "At point 5"
-   - name: Commit and push experiment results
-     run: |     
-      git config --local user.email "action@github.com"
-      git config --local user.name "github-actions"
-      git add --all
-      git commit -m "Results of the last experiment"
-      git push 
+  dvc_exp_run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run experiment
+      env:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        echo "At point 1"
+        pip install -r requirements.txt
+        echo "At point 2"
+        dvc pull
+        echo "At point 3"
+        find data_archive.zip
+        echo "At point 4"
+        dvc repro
+        echo "At point 5"
+    - name: Commit and push experiment results
+      run: |     
+        git config --local user.email "action@github.com"
+        git config --local user.name "github-actions"
+        git add --all
+        git commit -m "Results of the last experiment"
+        git push 
