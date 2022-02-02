@@ -1,10 +1,6 @@
 pandas
 sklearn
-#mlflow
-#neptune
 joblib
-dvc
-dvclive
 matplotlib
 
 
