@@ -3,4 +3,5 @@ sklearn
 joblib
 matplotlib
 dvc[gs]
-
+notebook
+nbconvert
