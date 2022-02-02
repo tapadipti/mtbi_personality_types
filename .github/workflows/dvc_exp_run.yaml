@@ -3,6 +3,9 @@ on: [pull_request]
 jobs:
   dvc_exp_run:
     runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     steps:
     - uses: actions/checkout@v2
     - id: 'auth'
@@ -11,6 +14,8 @@ jobs:
       with:
         workload_identity_provider: 'projects/ml-project-1122/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
         service_account: 'my-service-account@ml-project-1122.iam.gserviceaccount.com'
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v0'
     - name: Run experiment
       env:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
