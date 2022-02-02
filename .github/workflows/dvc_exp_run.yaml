@@ -1,0 +1,18 @@
+name: run-my-experiment
+on: [pull_request]
+jobs:
+ dvc_exp_run:
+  runs-on: ubuntu-latest
+  steps:
+   - uses: actions/checkout@v2
+   - name: Run experiment
+     run: |
+      pip install -r requirements.txt
+      dvc exp run
+   - name: Commit and push experiment results
+     run: |     
+      git config --local user.email "action@github.com"
+      git config --local user.name "github-actions"
+      git add --all
+      git commit -m "Results of the last experiment"
+      git push 
