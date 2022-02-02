@@ -34,4 +34,4 @@ jobs:
         git config --local user.name "github-actions"
         git add --all
         git commit -m "Results of the last experiment"
-        git push 
+        git push origin HEAD:${{ github.ref }}
