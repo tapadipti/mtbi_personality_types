@@ -14,8 +14,6 @@ jobs:
       with:
         credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
     - name: Run experiment
-      # env:
-      #   repo_token: ${{ secrets.GITHUB_TOKEN }}
       run: |
         echo "At point 0"
         # gcloud auth application-default login --quiet
@@ -29,6 +27,8 @@ jobs:
         dvc repro
         echo "At point 5"
     - name: Commit and push experiment results
+      env:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
       run: |     
         git config --local user.email "action@github.com"
         git config --local user.name "github-actions"
