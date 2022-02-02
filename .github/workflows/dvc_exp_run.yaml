@@ -9,8 +9,11 @@ jobs:
      env:
       repo_token: ${{ secrets.GITHUB_TOKEN }}
      run: |
+      echo "At point 1"
       pip install -r requirements.txt
+      echo "At point 2"
       dvc exp run
+      echo "At point 3"
    - name: Commit and push experiment results
      run: |     
       git config --local user.email "action@github.com"
