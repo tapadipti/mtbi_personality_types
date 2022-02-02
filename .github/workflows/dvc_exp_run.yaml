@@ -20,6 +20,8 @@ jobs:
       env:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
       run: |
+        echo "At point 0"
+        gcloud auth application-default login
         echo "At point 1"
         pip install -r requirements.txt
         echo "At point 2"
