@@ -12,8 +12,12 @@ jobs:
       echo "At point 1"
       pip install -r requirements.txt
       echo "At point 2"
-      dvc repro
+      dvc pull
       echo "At point 3"
+      find data_archive.zip
+      echo "At point 4"
+      dvc repro
+      echo "At point 5"
    - name: Commit and push experiment results
      run: |     
       git config --local user.email "action@github.com"
