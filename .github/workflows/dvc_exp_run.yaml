@@ -6,6 +6,8 @@ jobs:
   steps:
    - uses: actions/checkout@v2
    - name: Run experiment
+     env:
+      repo_token: ${{ secrets.GITHUB_TOKEN }}
      run: |
       pip install -r requirements.txt
       dvc exp run
