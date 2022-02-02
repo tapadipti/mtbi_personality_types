@@ -12,7 +12,7 @@ jobs:
       echo "At point 1"
       pip install -r requirements.txt
       echo "At point 2"
-      dvc exp run
+      dvc repro
       echo "At point 3"
    - name: Commit and push experiment results
      run: |     
