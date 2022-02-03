@@ -8,7 +8,8 @@ stages:
     - params.json:
       - lr
     outs:
-    - model.joblib
+    - model.joblib:
+        cache: false
     metrics:
     - metrics.json:
         cache: false
