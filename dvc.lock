@@ -7,16 +7,16 @@ stages:
       md5: 18263e7c414bf5871a9e4e7afd55b485
       size: 129457693
     - path: mtbi_prediction_task.ipynb
-      md5: 756a811894838f3a9a50e364ff7f8a40
-      size: 8033
+      md5: 1e4f9d818139df8cd62acb07fdf11ee5
+      size: 8019
     params:
       params.json:
         lr:
           penalty: l2
     outs:
     - path: metrics.json
-      md5: 99d2722c400844a18562199340eaf0d2
-      size: 17
+      md5: bf0a660857ae6a1fd97dc852bdca04ad
+      size: 18
     - path: model.joblib
-      md5: 3851a46cbe5e8b0664cd7015dc5f4051
-      size: 76525
+      md5: a07b988ffdcd4eafd843289a81942766
+      size: 76473
