@@ -18,7 +18,7 @@ jobs:
               --labels=my-gcp-runner
   dvc_exp_run:
     needs: deploy-runner
-    runs-on:[self-hosted, my-gcp-runner]
+    runs-on: [self-hosted, my-gcp-runner]
     permissions:
       contents: 'write'
       id-token: 'write'
