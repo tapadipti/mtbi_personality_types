@@ -1,5 +1,5 @@
 name: run-my-experiment
-on: [push]
+on: [pull_request]
 jobs:
   dvc_exp_run:
     runs-on: ubuntu-latest
