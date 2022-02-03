@@ -1,8 +1,24 @@
 name: run-my-experiment
 on: [pull_request]
 jobs:
-  dvc_exp_run:
+  deploy-runner:
     runs-on: ubuntu-latest
+    steps:
+      - uses: iterative/setup-cml@v1
+      - uses: actions/checkout@v2
+      - name: Deploy self-hosted runner on GCP
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GOOGLE_APPLICATION_CREDENTIALS_DATA: '${{ secrets.GOOGLE_CREDENTIALS }}'
+        run: |
+          cml runner \
+              --cloud=gcp \
+              --cloud-region=us-central1 \
+              --cloud-type=e2-medium \
+              --labels=my-gcp-runner
+  dvc_exp_run:
+    needs: deploy-runner
+    runs-on:[self-hosted, my-gcp-runner]
     permissions:
       contents: 'write'
       id-token: 'write'
