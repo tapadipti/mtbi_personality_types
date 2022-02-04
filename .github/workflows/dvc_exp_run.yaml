@@ -50,9 +50,8 @@ jobs:
     - name: Commit files
       id: commit
       run: |
-        git config --global user.email "tapadipti@gmail.com"
-        git config --global user.name "tapadipti"
-        git pull origin ${{ github.head_ref }}
+        git config --local user.email "action@github.com"
+        git config --local user.name "github-actions"
         git add --all
         if [-z "$(git status --porcelain)"]; then
           echo "::set-output name=push::false"
@@ -61,10 +60,9 @@ jobs:
           echo "::set-output name=push::true"
         fi
       shell: bash
-
-    - name: Push changes
+   - name: Push changes
       if: steps.commit.outputs.push == 'true'
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.head_ref }}
+        branch: ${{ github.ref }}
