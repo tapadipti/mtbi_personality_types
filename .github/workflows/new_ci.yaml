@@ -1,0 +1,30 @@
+name: new-ci
+on: [push]
+jobs:
+  dvc_exp_run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'write'
+      id-token: 'write'
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run experiment
+      env:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        echo "At point 0"
+        echo a > params.json
+        cat params.json
+    - name: Commit files
+      id: commit
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "github-actions"
+        git add --all
+        git commit -m "Results of the last experiment" -a
+      shell: bash
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
