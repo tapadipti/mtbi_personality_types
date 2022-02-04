@@ -15,8 +15,8 @@ stages:
           penalty: l2
     outs:
     - path: metrics.json
-      md5: d8556de1ab9a67ba29638420936ab7e1
-      size: 17
+      md5: 2f9f5db9181443d9f8f96862b3b3d408
+      size: 18
     - path: model.joblib
-      md5: 538d7d317098beb9a9e84fa77bad8bf1
-      size: 76273
+      md5: 24b7b5a39c6106fc2e1a961b9309d1ce
+      size: 76409
