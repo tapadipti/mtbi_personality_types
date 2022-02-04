@@ -3,3 +3,4 @@ data_archive.zip
 /model.joblib
 mlruns/
 mtbi_prediction_task.nbconvert.ipynb
+/a.txt

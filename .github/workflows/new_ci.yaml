@@ -13,8 +13,8 @@ jobs:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
       run: |
         echo "At point 0"
-        echo a > params.json
-        cat params.json
+        echo a > dvclive.json
+        cat dvclive.json
     - name: Commit files
       id: commit
       run: |
