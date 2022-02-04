@@ -59,7 +59,7 @@ jobs:
           git commit -m "Results of the last experiment" -a
           echo "::set-output name=push::true"
         fi
-        git push origin ${{ github.head_ref }}
+        git push
       shell: bash
     # - name: Push changes
     #   if: steps.commit.outputs.push == 'true'
