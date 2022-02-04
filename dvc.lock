@@ -12,11 +12,11 @@ stages:
     params:
       params.json:
         lr:
-          penalty: none
+          penalty: l2
     outs:
     - path: metrics.json
       md5: c6fdd61fca21a1d86aa9370e9072e75e
       size: 17
     - path: model.joblib
-      md5: 52c2bb7dcb900c0bcdf01855419a44af
-      size: 76747
+      md5: d2e6dc34d397560ee7c28b5f14cfcf00
+      size: 76649
