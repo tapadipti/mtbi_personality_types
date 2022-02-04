@@ -15,6 +15,7 @@ jobs:
         echo "At point 0"
         echo a > dvclive.json
         cat dvclive.json
+        pip3 install --upgrade pip
         pip install -r requirements.txt
         echo "At point 2"
         dvc pull
